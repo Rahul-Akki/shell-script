@@ -10,7 +10,7 @@ VALIDATE(){
         exit 1
     else
         echo "STATUS : Installing is SUCCESS" 
-
+    fi
 }
 
 if [ $ID -ne 0 ]
