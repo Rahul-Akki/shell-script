@@ -1,7 +1,7 @@
 #!bin/bash
 
 ID=$(id -u) # 1 --> Sudo access validation
-TIMESTAMP=$(date)
+TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 R="\e[31m"
 G="\e[32m"
