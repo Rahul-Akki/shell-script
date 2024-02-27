@@ -17,7 +17,7 @@ fi          # fi is used to end the if condition
             
 # 2 --> MySQL installation
 
-yum install myslql -y
+yum install mysql -y
 
 if [ $? -ne 0 ]
 then
