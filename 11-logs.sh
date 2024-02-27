@@ -1,23 +1,25 @@
 #!bin/bash
 
-VALIDATE(){ #3 --> Validation function and call it whenever required.
-    if [ $1 -ne 0 ]
-    then
-        echo "ERROR : $2 ...failed"
-        exit 1
-    else
-        echo "STATUS : $2 ...SUCCESS" 
-    fi
-}
-
-
 ID=$(id -u) # 1 --> Sudo access validation
 TIMESTAMP=$(date)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
+VALIDATE(){ #3 --> Validation function and call it whenever required.
+    if [ $1 -ne 0 ]
+    then
+        echo -e "ERROR : $2 ...$R failed $N"
+        exit 1
+    else
+        echo -e "STATUS : $2 ...$G SUCCESS $N" 
+    fi
+}
 
 if [ $ID -ne 0 ]
 then
-    echo "ERROR : Please run this script with root access"
+    echo -e "$R ERROR : Please run this script with root access $N"
     exit 1 
 else
     echo "Your are root user"
