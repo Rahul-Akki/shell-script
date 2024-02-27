@@ -10,12 +10,11 @@ VALIDATE(){ #3 --> Validation function and call it whenever required.
     fi
 }
 
-TIMESTAMP=$(date)
-LOGFILE="/TEMP/$0-$TIMESTAMP.log"
-
-
 
 ID=$(id -u) # 1 --> Sudo access validation
+TIMESTAMP=$(date)
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
+
 if [ $ID -ne 0 ]
 then
     echo "ERROR : Please run this script with root access"
