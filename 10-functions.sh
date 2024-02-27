@@ -1,8 +1,5 @@
 #!bin/bash
 
-# 1 --> Sudo access validation
-ID=$(id -u)
-
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
@@ -13,6 +10,9 @@ VALIDATE(){
     fi
 }
 
+
+# 1 --> Sudo access validation
+ID=$(id -u)
 
 if [ $ID -ne 0 ]
 then
