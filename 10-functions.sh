@@ -13,6 +13,7 @@ VALIDATE(){
     fi
 }
 
+
 if [ $ID -ne 0 ]
 then
     echo "ERROR : Please run this script with root access" #stop --> clear the error --> then proceed to next step
@@ -27,10 +28,10 @@ fi          # fi is used to end the if condition
             
 # 2 --> MySQL installation
 
-yum install mysql -y $? "MySQL Installation"
+yum install mysql -y 
 
-VALIDATE
+VALIDATE $? "MySQL Installation"
 
-yum install git -y $? "GIT Installation"
+yum install git -y
 
-VALIDATE
+VALIDATE $? "GIT Installation"
