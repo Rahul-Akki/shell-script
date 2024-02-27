@@ -7,6 +7,8 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
+echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
+
 VALIDATE(){ #3 --> Validation function and call it whenever required.
     if [ $1 -ne 0 ]
     then
