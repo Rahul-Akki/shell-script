@@ -24,5 +24,15 @@ then
     echo "ERROR : Installing MySQL is failed"
     exit 1
 else
-    echo "ERROR : Installing MySQL is SUCCESS"
+    echo "STATUS : Installing MySQL is SUCCESS"
+fi
+
+yum install git -y
+
+if [ $? -ne 0 ]
+then
+    echo "ERROR : Installing git is failed"
+    exit 1
+else
+    echo "STATUS : Installing git is SUCCESS"
 fi
