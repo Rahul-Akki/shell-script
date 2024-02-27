@@ -9,5 +9,6 @@ echo "$person1 :: How are you $person2 ?"
 echo "$person2 :: I am good $person1, How are you ?"
 
 # Commands to use 
-# sh 04-varibles.sh <$1> <$2>
+# sh 04-varibles.sh <$1> <$2>   
+# $1 --> these are called Argument's
 # sh 04-varibles.sh ramesh suresh
