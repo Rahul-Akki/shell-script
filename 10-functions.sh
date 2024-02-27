@@ -1,6 +1,6 @@
 #!bin/bash
 
-VALIDATE(){
+VALIDATE(){ #3 --> Validation function and call it whenever required.
     if [ $1 -ne 0 ]
     then
         echo "ERROR : $2 ...failed"
@@ -10,25 +10,17 @@ VALIDATE(){
     fi
 }
 
-
-# 1 --> Sudo access validation
-ID=$(id -u)
+ID=$(id -u) # 1 --> Sudo access validation
 
 if [ $ID -ne 0 ]
 then
-    echo "ERROR : Please run this script with root access" #stop --> clear the error --> then proceed to next step
-    exit 1 # we can can give any number other than 0. -->   # EXIT STATUS --> echo $? = 0
-
-             #shell scrip will not stop if we get an error. Its our responsibility to check and proceed the script. 
-           
+    echo "ERROR : Please run this script with root access"
+    exit 1 
 else
     echo "Your are root user"
-fi          # fi is used to end the if condition
+fi 
 
-            
-# 2 --> MySQL installation
-
-yum install mysql -y 
+yum install mysql -y # 2 --> MySQL installation
 
 VALIDATE $? "MySQL Installation"
 
