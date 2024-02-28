@@ -1,4 +1,21 @@
 #!bin/bash
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+TIMESTAMP=$(DATE +%F-%H-%M-%S)
+LOGFILE="/TEMP/$0-$TIMESTAMP.log"
+
+echo " scrip started executing at $TIMESTAMP" &>> $LOGFILE
+
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then 
+        echo -e "$2...$R FAILED $N"
+    else
+        echo -e "$2...$R SUCCESS $N"
+}
+
 
 ID=$(id -u) #--> Sudo access validation
 
@@ -10,4 +27,19 @@ else
     echo "Your are root user"
 fi # fi indicates, end of if condition
 
-echo "All the arguments passed : $@"
+#echo "All the arguments passed : $@"
+#git mysql postfix
+#package-git for first time.
+
+for package in $@
+do
+    yum list installed $package &>> $LOGFILE #check installed or not
+    if [ $? -ne 0 ] #if installed
+    then
+        yum install $package -y &>> $LOGFILE #installing the package
+        VALIDATE $? "INSTALLATION OF $package" #validate
+    else
+        echo -e "$package is already installed ... $Y SKIPPING $N"
+    
+done
+
