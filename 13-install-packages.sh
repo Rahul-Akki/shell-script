@@ -3,8 +3,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-TIMESTAMP=$(DATE +%F-%H-%M-%S)
-LOGFILE="/TEMP/$0-$TIMESTAMP.log"
+TIMESTAMP=$(date +%F-%H-%M-%S)
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 echo " scrip started executing at $TIMESTAMP" &>> $LOGFILE
 
@@ -14,6 +14,7 @@ VALIDATE(){
         echo -e "$2...$R FAILED $N"
     else
         echo -e "$2...$R SUCCESS $N"
+    fi
 }
 
 
