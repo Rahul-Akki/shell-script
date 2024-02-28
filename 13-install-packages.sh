@@ -1,12 +1,14 @@
 #!bin/bash
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
-echo " scrip started executing at $TIMESTAMP" &>> $LOGFILE
+echo "scrip started executing at $TIMESTAMP" &>> $LOGFILE
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -41,6 +43,6 @@ do
         VALIDATE $? "INSTALLATION OF $package" #validate
     else
         echo -e "$package is already installed ... $Y SKIPPING $N"
-    
+    fi
 done
 
