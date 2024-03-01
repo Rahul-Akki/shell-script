@@ -12,7 +12,7 @@ do
     then
         message+="High Disk Usage On $partition: $usage\n"
     fi
-done<<< $DISK_USAGE
+done <<< $DISK_USAGE
 
 echo -e " Message: $message "
 echo "$message Date $(date)" | mail -s "High Disk Usage" rahula.24a@gmail.com
