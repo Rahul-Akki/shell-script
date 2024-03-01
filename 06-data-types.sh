@@ -9,4 +9,4 @@ echo "Total:: $SUM"
 
 echo "How maney args passed : $#"
 echo "All args passed : $@"
-echo "Sceipt name : $0"
+echo "Script name : $0"
