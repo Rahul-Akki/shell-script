@@ -8,7 +8,7 @@ while IFS= read line
 do
     usage=$(echo df -hT | grep -vE 'tmp|File' | awk '{print $6F}' | cut -d % -f1)
     partition=$(echo df -hT | grep -vE 'tmp|File' | awk '{print $1F}')
-    if [ $usage -gt $DISK_THRESHOLD ]
+    if [ $usage -ge $DISK_THRESHOLD ]
     then
         message+="\nHigh Disk Usage On $partition: $usage\n"
     fi
