@@ -13,4 +13,4 @@ WHILE IFS=reaf -r line
 do
     echo "Deleting file: $line"
     
-done  
+done  <<< $FILES_TO_DELETE
