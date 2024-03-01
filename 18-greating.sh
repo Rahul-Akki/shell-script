@@ -11,9 +11,6 @@ USAGE(){
     echo "-h, Display Help and exit."
 }
 
-
-echo "Hello $person , Good morning. We are Learning Shell Script"
-
 while getops ":n:w:h" opt; 
 do  
     case $opt in
