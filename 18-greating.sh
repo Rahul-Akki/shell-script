@@ -14,7 +14,7 @@ USAGE(){
 while getopts ":n:w:h" opt; 
 do  
     case $opt in
-        n) NAME="OPTARG";;
+        n) NAME="$OPTARG";;
         w) WISHES="$OPTARG";;
         \?) echo " invalide options: -"$OPTARG"" >&2; USAGE; exit;;
         h|*) USAGE; exit;;
