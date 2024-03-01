@@ -16,12 +16,13 @@ do
     case $opt in
         n) NAME="OPTARG";;
         w) WISHES="$OPTARG";;
+        \?) echo " invalide options: -"$OPTARG"" >&2; USAGE; exit;;
         h|*) USAGE; exit;;
         :) USAGE; exit;;
     esac
 done
 
-if [ -z "$NAME" ] || [ -z "WISHES" ]; then
+if [ -z "$NAME" ] || [ -z "$WISHES" ]; then
     echo "Error: Both -n and -w are mandatory options."
     USAGE
     exit 1
